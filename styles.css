@@ -1,0 +1,727 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Header and Navigation */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #0ea0b0;
+  color: white;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0 0 15px 0;
+  font-size: 2rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #31b8c7;
+  transform: translateY(-2px);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #0ea0b0;
+  border-radius: 5px;
+  padding: 10px 0;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 8px 20px;
+  text-wrap: nowrap;
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  color: white;
+  font-weight: normal;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #31b8c7;
+  border-radius: 5px;
+}
+
+/* Sections */
+section {
+  margin: 20px auto;
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(5, 5, 5, 0.1);
+  width: 90%;
+  max-width: 1200px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #0ea0b0, #31b8c7);
+  border-radius: 2px;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 10px rgba(14, 160, 176, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid white;
+  display: block;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 0 10px rgba(14, 160, 176, 0.2);
+}
+
+/* Skills Section */
+#skills table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#skills th {
+  background-color: #0ea0b0;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+#skills td {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+#skills tr:nth-child(even) {
+  background-color: #e3f7f9;
+}
+
+#skills tr:hover {
+  background-color: #d1f0f2;
+  transition: 0.3s ease-in-out;
+}
+
+#skills td[colspan="3"] {
+  font-weight: bold;
+  background-color: #0ea0b0;
+  color: white;
+  text-align: center;
+}
+
+/* Education Section */
+#education table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 20px;
+}
+
+#education th {
+  background-color: #e68900;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 10px 10px 0 0;
+}
+
+#education td {
+  padding: 15px;
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  border-radius: 10px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#education tr {
+  transition: transform 0.3s ease-in-out;
+}
+
+#education tr:hover {
+  transform: scale(1.02);
+}
+
+/* Contact Section */
+#contact {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0ea0b0;
+  outline: none;
+  box-shadow: 0 0 10px rgba(14, 160, 176, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-form button {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  background: linear-gradient(135deg, #0ea0b0, #31b8c7);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(14, 160, 176, 0.3);
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #078d98, #0ea0b0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 160, 176, 0.4);
+}
+
+.edu-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #e68900, #f39c12);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(230, 137, 0, 0.3);
+}
+
+.edu-link:hover {
+  background: linear-gradient(135deg, #d68900, #e68900);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 137, 0, 0.4);
+}
+
+.edu-link:visited {
+  color: white;
+}
+
+/* Hobbies Section */
+#hobbies {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.hobbies-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.hobbies-list li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  text-align: left;
+}
+
+.hobbies-list li span {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.hobbies-list li:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 40px 20px 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h3 {
+  color: #0ea0b0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #0ea0b0;
+  border-radius: 1px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #0ea0b0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #0ea0b0;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background: #31b8c7;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(14, 160, 176, 0.4);
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.newsletter-form input::placeholder {
+  color: #bdc3c7;
+}
+
+.newsletter-form button {
+  padding: 12px 20px;
+  background: #0ea0b0;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.newsletter-form button:hover {
+  background: #31b8c7;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bdc3c7;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode section {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark-mode #skills td,
+.dark-mode #education td,
+.dark-mode .hobbies-list li {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+}
+
+.dark-mode h2 {
+  color: #0ea0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Header */
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  nav ul li {
+    margin: 0;
+  }
+  
+  nav a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  /* Sections */
+  section {
+    width: 95%;
+    padding: 20px 15px;
+    margin: 15px auto;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  /* Profile Picture */
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* Tables */
+  #skills table,
+  #education table {
+    font-size: 14px;
+  }
+  
+  #skills th,
+  #skills td,
+  #education th,
+  #education td {
+    padding: 10px 8px;
+  }
+  
+  /* Contact Form */
+  #contact {
+    padding: 20px 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    max-width: 100%;
+  }
+  
+  /* Hobbies */
+  .hobbies-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Header */
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  
+  nav a {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  /* Sections */
+  section {
+    width: 98%;
+    padding: 15px 10px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Profile Picture */
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  
+  /* Tables - Make them scrollable on very small screens */
+  #skills,
+  #education {
+    overflow-x: auto;
+  }
+  
+  #skills table,
+  #education table {
+    min-width: 400px;
+    font-size: 12px;
+  }
+  
+  #skills th,
+  #skills td,
+  #education th,
+  #education td {
+    padding: 8px 6px;
+  }
+  
+  /* Contact Form */
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .contact-form button {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  /* Hobbies */
+  .hobbies-list li {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 30px 15px 15px;
+  }
+  
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  section {
+    width: 85%;
+    padding: 25px 20px;
+  }
+  
+  .hobbies-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Screen Styles */
+@media (min-width: 1025px) {
+  section {
+    width: 80%;
+    max-width: 1000px;
+  }
+  
+  .hobbies-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Form Messages */
+.success-message {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.error-message {
+  background: linear-gradient(135deg, #f44336, #da190b);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #f44336;
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.2);
+}
+
+.contact-form input.error:focus,
+.contact-form textarea.error:focus {
+  border-color: #f44336;
+  box-shadow: 0 0 15px rgba(244, 67, 54, 0.3);
+}
+
+/* Print Styles */
+@media print {
+  header {
+    position: static;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+  
+  .contact-form,
+  .newsletter-form {
+    display: none;
+  }
+}
